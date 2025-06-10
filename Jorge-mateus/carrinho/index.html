@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!-- Mirrored from q2ingressosbr.com/Jorge-mateus-RJ/Jorge-mateus/carrinho/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 10 Jun 2025 13:39:42 GMT -->
+<head>
+    <script>
+  window.pixelId = "68126206a0d17b0fcad73f5e";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "../../../../cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Q2 Ingressos</title>
+    <style>
+        :root {
+            --blue: #005B8E;
+            --orange: #FF751B;
+            --gray600: #505050;
+            --gray700: #292929;
+            --lightgray: #f8f8f8;
+            --border: #E1E1E1;
+        }
+
+        body {
+            font-family: "Work Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-header {
+            background: var(--blue);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-icon img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--orange);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .menu-button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .menu-button img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .timer {
+            background: var(--lightgray);
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--gray700);
+        }
+
+        .event-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .event-info {
+            padding: 15px;
+        }
+
+        .event-title {
+            color: var(--blue);
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+        }
+
+        .event-name {
+            color: var(--gray700);
+            font-size: 16px;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .event-details {
+            display: flex;
+            align-items: flex-start;
+            margin: 10px 0;
+            font-size: 14px;
+            color: var(--gray600);
+        }
+
+        .event-details svg {
+            min-width: 18px;
+            margin-right: 10px;
+            color: var(--gray600);
+        }
+
+        .ticket-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .price-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--gray700);
+        }
+
+        .tax-price {
+            font-size: 14px;
+            color: var(--gray600);
+            margin-top: 4px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: var(--blue);
+            color: white;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .quantity-value {
+            width: 30px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .summary {
+            margin: 30px 0;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--gray600);
+            font-size: 16px;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            color: var(--gray700);
+            font-size: 18px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .terms {
+            margin: 20px 0;
+            font-size: 14px;
+            color: var(--gray600);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .terms input {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        .terms a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(0.9);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--blue);
+            color: var(--blue);
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--gray600);
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+
+<script
+  src="../../../../cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+<script>
+  window.pixelId = "67e1fb27d6279fd57c378530";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "../../../../cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+
+<body>
+    <header class="top-header">
+        <div class="cart-icon">
+            <img src="../Jorge-mateus/images/cart-mobile.html" alt="Carrinho">
+            <span class="cart-count">1</span>
+        </div>
+        <button class="menu-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+    </header>
+
+    <div class="container">
+        <div class="timer">
+            Seu carrinho expira em <span id="timer">09:33</span> minutos
+        </div>
+
+        <div id="cart-content">
+            <!-- Conteúdo do carrinho será preenchido via JavaScript -->
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Q2 Ingressos LTDA - CNPJ sob o nº 21.233.248/0001-72</p>
+    </div>
+
+    <script>
+        // Função para formatar preço em Reais
+        function formatPrice(price) {
+            return price.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+        }
+
+        // Função para atualizar o contador do carrinho
+        function updateCartCount() {
+            const cartData = JSON.parse(localStorage.getItem('carrinho'));
+            const cartCount = document.querySelector('.cart-count');
+            let totalItems = 0;
+
+            if (cartData && cartData.ingressos) {
+                cartData.ingressos.forEach(ingresso => {
+                    totalItems += ingresso.quantidade;
+                });
+            }
+
+            cartCount.textContent = totalItems || 1;
+        }
+
+        // Função para iniciar o timer
+        function startTimer(duration) {
+            let timer = duration;
+            
+            // Se temos um tempo de expiração salvo, usamos ele
+            const cartData = JSON.parse(localStorage.getItem('carrinho'));
+            if (cartData && cartData.expiracao) {
+                timer = cartData.expiracao;
+            }
+            
+            const timerElement = document.getElementById('timer');
+            
+            const countdown = setInterval(() => {
+                const minutes = parseInt(timer / 60, 10);
+                const seconds = parseInt(timer % 60, 10);
+
+                timerElement.textContent = minutes.toString().padStart(2, '0') + ':' + 
+                                         seconds.toString().padStart(2, '0');
+
+                if (--timer < 0) {
+                    clearInterval(countdown);
+                    localStorage.removeItem('carrinho');
+                    window.location.href = '../Jorge-mateus/index.html' + window.location.search;
+                }
+            }, 1000);
+        }
+
+        // Aumentar quantidade de ingressos
+        function increaseQuantity(index) {
+            const cartData = JSON.parse(localStorage.getItem('carrinho'));
+            if (cartData && cartData.ingressos && cartData.ingressos[index]) {
+                // Calcular o total de ingressos atual
+                let totalIngressos = 0;
+                cartData.ingressos.forEach(ingresso => {
+                    totalIngressos += ingresso.quantidade;
+                });
+                
+                // Verificar se já atingiu o limite máximo de 3 ingressos
+                if (totalIngressos >= 3) {
+                    alert('Você atingiu o limite máximo de 3 ingressos.');
+                    return;
+                }
+                
+                cartData.ingressos[index].quantidade++;
+                localStorage.setItem('carrinho', JSON.stringify(cartData));
+                renderCart();
+                updateCartCount();
+            }
+        }
+
+        // Diminuir quantidade de ingressos
+        function decreaseQuantity(index) {
+            const cartData = JSON.parse(localStorage.getItem('carrinho'));
+            if (cartData && cartData.ingressos && cartData.ingressos[index] && cartData.ingressos[index].quantidade > 1) {
+                cartData.ingressos[index].quantidade--;
+                localStorage.setItem('carrinho', JSON.stringify(cartData));
+                renderCart();
+                updateCartCount();
+            }
+        }
+
+        // Função para renderizar o carrinho
+        function renderCart() {
+            const cartData = JSON.parse(localStorage.getItem('carrinho'));
+            const cartContent = document.getElementById('cart-content');
+
+            if (!cartData || !cartData.ingressos || cartData.ingressos.length === 0) {
+                cartContent.innerHTML = `
+                    <div style="text-align: center; padding: 40px">
+                        <h2>Seu carrinho está vazio</h2>
+                        <p>Nenhum ingresso selecionado.</p>
+                        <a href="../Jorge-mateus/index.html" class="btn btn-secondary">Voltar para a seleção de ingressos</a>
+                    </div>
+                `;
+                return;
+            }
+            let subtotal = 0;
+            let totalTaxas = 0;
+            let ticketsHtml = '';
+
+            cartData.ingressos.forEach((ingresso, index) => {
+                // Calcula o subtotal em centavos
+const subtotalIngresso = Math.round(ingresso.preco * 100) * ingresso.quantidade;
+
+// Calcula a taxa em centavos
+const taxasIngresso = Math.round((subtotalIngresso * 15.2) / 100);
+
+// Converte de volta para reais
+subtotal += subtotalIngresso / 100;
+totalTaxas += taxasIngresso / 100;
+
+                // Calcular o total de ingressos atual
+                let totalIngressos = 0;
+                cartData.ingressos.forEach(ingresso => {
+                    totalIngressos += ingresso.quantidade;
+                });
+                
+                // Verificar se já atingiu o limite de 3 ingressos para desabilitar botões
+                const botoesMaisDesabilitados = totalIngressos >= 3;
+
+                ticketsHtml += `
+                    <div class="event-card">
+                        <div class="event-info">
+                            <h2 class="event-title">${ingresso.nome}</h2>
+                            <h3 class="event-name">${cartData.evento.nome}</h3>
+                            
+                            <div class="event-details">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                <span>${cartData.evento.data}</span>
+                            </div>
+                            
+                            <div class="event-details">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <span>${cartData.evento.local}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ticket-controls">
+                            <div class="price-info">
+                                <span class="main-price">${formatPrice(ingresso.preco)}</span>
+                                <span class="tax-price">(+ ${formatPrice(ingresso.taxa)} taxa)</span>
+                            </div>
+                            
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="decreaseQuantity(${index})">-</button>
+                                <span class="quantity-value">${ingresso.quantidade}</span>
+                                <button class="quantity-btn" onclick="increaseQuantity(${index})" ${botoesMaisDesabilitados ? 'disabled style="background-color: #ccc; cursor: not-allowed;"' : ''}>+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            const total = subtotal + totalTaxas;
+
+            cartContent.innerHTML = `
+                ${ticketsHtml}
+                
+                <div class="summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span>${formatPrice(subtotal)}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Taxa de conveniência:</span>
+                        <span>${formatPrice(totalTaxas)}</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span>${formatPrice(total)}</span>
+                    </div>
+                </div>
+                
+                <div class="terms">
+                    <input type="checkbox" id="terms-checkbox" onchange="atualizarBotaoCompra()">
+                    <label for="terms-checkbox">
+                        Declaro que li e concordo com os <a href="#">termos de uso</a> e aceito as <a href="#">políticas de privacidade</a>
+                    </label>
+                </div>
+                
+                <button id="btn-finalizar" onclick="finalizarCompra()" class="btn btn-primary" disabled style="background-color: #ccc; cursor: not-allowed;">Finalizar compra</button>
+                <a href="../Jorge-mateus/index.html" class="btn btn-secondary">Voltar para a seleção de ingressos</a>
+            `;
+            
+			
+            // Verificar estado inicial do checkbox
+            atualizarBotaoCompra();
+        }
+
+        // Função para atualizar o estado do botão de finalizar compra
+        function atualizarBotaoCompra() {
+            const termsCheckbox = document.getElementById('terms-checkbox');
+            const btnFinalizar = document.getElementById('btn-finalizar');
+            
+            if (termsCheckbox && btnFinalizar) {
+                if (termsCheckbox.checked) {
+                    btnFinalizar.disabled = false;
+                    btnFinalizar.style.backgroundColor = 'var(--blue)';
+                    btnFinalizar.style.cursor = 'pointer';
+                } else {
+                    btnFinalizar.disabled = true;
+                    btnFinalizar.style.backgroundColor = '#ccc';
+                    btnFinalizar.style.cursor = 'not-allowed';
+                }
+            }
+        }
+
+        // Função para finalizar a compra
+        function finalizarCompra() {
+            const termsCheckbox = document.getElementById('terms-checkbox');
+            
+            if (!termsCheckbox.checked) {
+                alert('Por favor, aceite os termos de uso e políticas de privacidade para continuar.');
+                return;
+            }
+            
+            // Obter dados do carrinho
+            const cartData = JSON.parse(localStorage.getItem('carrinho'));
+            
+            // Verificar categorias e quantidades de ingressos
+            let ArenaQtd = 0;
+            let cadeiraQtd = 0;
+            let arquibancadaQtd = 0;
+            
+            // Contar quantidade de cada categoria
+            cartData.ingressos.forEach(ingresso => {
+                if (ingresso.nome.includes('Premium')) {
+                    ArenaQtd += ingresso.quantidade;
+                } else if (ingresso.nome.includes('Cadeira')) {
+                    cadeiraQtd += ingresso.quantidade;
+                } else if (ingresso.nome.includes('Frontstage')) {
+                    arquibancadaQtd += ingresso.quantidade;
+                }
+            });
+            
+            // Determinar o checkout baseado na categoria e quantidade
+            let checkoutUrl = '';
+            
+            // Camarote (prioridade 1)
+            if (ArenaQtd > 0 && cadeiraQtd === 0 && arquibancadaQtd === 0) {
+                if (ArenaQtd === 1) {
+                    checkoutUrl = '../checkout/P1/index.html'; // 1 Camarote
+                } else if (ArenaQtd === 2) {
+                    checkoutUrl = '../checkout/P2/index.html'; // 2 Camarotes
+                } else if (ArenaQtd === 3) {
+                    checkoutUrl = '../checkout/P3/index.html'; // 3 Camarotes
+                }
+            }
+            // Cadeira (prioridade 2)
+            else if (cadeiraQtd > 0 && ArenaQtd === 0 && arquibancadaQtd === 0) {
+                if (cadeiraQtd === 1) {
+                    checkoutUrl = 'https://pay.q2ingressospagamentoseguro.shop/5pjw3Rnaej232lQ'; // 1 Cadeira
+                } else if (cadeiraQtd === 2) {
+                    checkoutUrl = 'https://pay.q2ingressospagamentoseguro.shop/a9ArZMl9ez137xj'; // 2 Cadeiras
+                } else if (cadeiraQtd === 3) {
+                    checkoutUrl = 'https://pay.q2ingressospagamentoseguro.shop/eApQgz2nYP5gEb7'; // 3 Cadeiras
+                }
+            }
+            // Arquibancada (prioridade 3)
+            else if (arquibancadaQtd > 0 && ArenaQtd === 0 && cadeiraQtd === 0) {
+                if (arquibancadaQtd === 1) {
+                    checkoutUrl = '../checkout/f1/index.html'; // 1 Arquibancada
+                } else if (arquibancadaQtd === 2) {
+                    checkoutUrl = '../checkout/f2/index.html'; // 2 Arquibancadas
+                } else if (arquibancadaQtd === 3) {
+                    checkoutUrl = '../checkout/f3/index.html'; // 3 Arquibancadas
+                }
+            }
+            
+            // Se por algum motivo não foi definido um checkout, use um padrão
+            if (!checkoutUrl) {
+                checkoutUrl = 'https://pay.q2ingressospagamentoseguro.shop/cart/fb209d02-5255-4723-a765-8997385a1766';
+            }
+            
+            // Limpar o carrinho
+            localStorage.removeItem('carrinho');
+            
+            // Redirecionar para o checkout apropriado
+            window.location.href = checkoutUrl + window.location.search;
+        }
+
+        // Inicializar o carrinho
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+            updateCartCount();
+            startTimer(10 * 60); // 10 minutos em segundos
+        });
+    </script>
+</body>
+
+
+
+<!-- Mirrored from q2ingressosbr.com/Jorge-mateus-RJ/Jorge-mateus/carrinho/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 10 Jun 2025 13:39:43 GMT -->
+</html> 
